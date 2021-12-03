@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Edit movie</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Movies list</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/movies}">Movies list</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Update movie </h1>
+            <div class = "card-body">
+                <form th:action="@{/movies/{id}(id=${movie.id})}" th:object = "${movie}" method="POST">
+                    <div class ="form-group">
+                        <label> movie </label>
+                        <input
+                                type = "text"
+                                name = "name"
+                                th:field = "*{name}"
+                                class = "form-control"
+                                placeholder="movie"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> director </label>
+                        <input
+                                type = "text"
+                                name = "director"
+                                th:field = "*{director}"
+                                class = "form-control"
+                                placeholder="director"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> release year </label>
+                        <input
+                                type = "text"
+                                name = "release year"
+                                th:field = "*{releaseYear}"
+                                class = "form-control"
+                                placeholder="release year"
+                        />
+                    </div>
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
